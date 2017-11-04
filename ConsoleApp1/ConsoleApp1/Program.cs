@@ -1,62 +1,40 @@
 ﻿using System;
 
-namespace lab
+namespace ConsoleApp5
 {
-    class lab6
+    class Program
     {
         static void Main(string[] args)
         {
-            Student tr = new Student("58030218",300);
-            try
-            {
-                //tr.studentID = "your ID";
-                //tr.salary = 500f;
-                Console.WriteLine("StudentID : " + tr.student);
-                Console.WriteLine("Salary   : " + tr.salary);
-             
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
+            Teacher teacher = new Teacher("Tom", 350f);
+            // teacher work for 20Hr/month
+            Console.WriteLine("{0} charge = {1}", teacher.TypeName(),
+                teacher.CalculateCharge(20f));
             Console.ReadLine();
 
-
         }
     }
-    class traineestudent
+
+    class Teacher
     {
-        private string studentID;
-        private int salary;
- 
-
-        public traineestudent(string studentID, int salary)
+        // constructor (for initial private/protected variables)
+        public Teacher(string name, float billingRate)
         {
-            this.studentID = studentID;   // assign auto variable to the field
-            this.salary = salary;
+            this.name = name;
+            this.billingRate = billingRate;
         }
-
-        public string getstudentID
+        // figure out the charge based on teacher's rate
+        public float CalculateCharge(float hours)
         {
-            get { return studentID; }
+            return (hours * billingRate);
         }
-        public int getsalary
+        // return the name of this type
+        public string TypeName()
         {
-            get { return salary ; }
-            set
-            {
-                if (value >= 300 && value < 450)
-                    salary = value;
-                else
-                    throw (new Exception("Error!!!! invalid salary"));
-            }
+            return ("Teacher");
         }
-        
-            
-        }
+        private string name;
+        protected float billingRate;
     }
-
-
-
-
+}
 
