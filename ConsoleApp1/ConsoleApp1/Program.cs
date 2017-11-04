@@ -1,64 +1,62 @@
 ﻿using System;
 
-namespace ConsoleApp5
+namespace lab
 {
-    class Program
+    class lab6
     {
         static void Main(string[] args)
         {
-            Student su = new Student("Student Name", "12345678");
+            Student tr = new Student("58030218",300);
             try
             {
-               // su.Name = "My name";
-                su.GPA = 4.0f;
-                Console.WriteLine("Student name : " + su.Name);
-                Console.WriteLine("Student ID   : " + su.ID);
-                Console.WriteLine("Student GPA  : " + su.GPA);
+                //tr.studentID = "your ID";
+                //tr.salary = 500f;
+                Console.WriteLine("StudentID : " + tr.student);
+                Console.WriteLine("Salary   : " + tr.salary);
+             
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
             Console.ReadLine();
+
+
         }
     }
-    class Student
+    class traineestudent
     {
-        private string name;
-        private string id;
-        private float gpa;
+        private string studentID;
+        private int salary;
+ 
 
-        public Student(string Name, string ID)
+        public traineestudent(string studentID, int salary)
         {
-            this.name = Name;   // assign auto variable to the field
-            this.id = ID;
+            this.studentID = studentID;   // assign auto variable to the field
+            this.salary = salary;
         }
 
-        public string Name
+        public string getstudentID
         {
-            get { return name; }
+            get { return studentID; }
         }
-        public string ID
+        public int getsalary
         {
-            get { return id; }
-        }
-        public float GPA
-        {
-            get
-            {
-                return gpa;
-            }
+            get { return salary ; }
             set
             {
-                if (value > 0.0 && value <= 4.0)
-                    gpa = value;
+                if (value >= 300 && value < 450)
+                    salary = value;
                 else
-                    throw (new Exception("Error!!!! invalid GPA"));
+                    throw (new Exception("Error!!!! invalid salary"));
             }
+        }
+        
+            
         }
     }
 
 
 
 
-}
+
