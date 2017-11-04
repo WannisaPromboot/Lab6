@@ -4,31 +4,43 @@ namespace ConsoleApp5
 {
     class Program
     {
-        void print(int i)
-        {
-            Console.WriteLine("Printing int: {0}", i);
-        }
-
-        void print(double f)
-        {
-            Console.WriteLine("Printing float: {0}", f);
-        }
-
-        void print(string s)
-        {
-            Console.WriteLine("Printing string: {0}", s);
-        }
-
         static void Main(string[] args)
         {
-            Program p = new Program();
-            p.print(5);
-            p.print((5.26f).ToString());
-            p.print(264.2871);
-            p.print((int)1354.23);
-            p.print("Hello World of C#");
+            Person p = new Person();
+            p.SayHi();
+            Student s = new Student();
+            s.SayHi();
+            Person sp = new Student();
+            sp.SayHi();
+            Teacher t = new Teacher();
+            t.SayHi();
+            Person tp = new Teacher();
+            tp.SayHi();
             Console.ReadKey();
+
+        }
+    }
+    class Person
+    {
+        public virtual void SayHi()
+        {
+            Console.WriteLine("Hi I'm a person");
+        }
+    }
+
+    class Student : Person
+    {
+        public override void SayHi()
+        {
+            Console.WriteLine("Hi I'm a student");
+        }
+    }
+
+    class Teacher : Person
+    {
+        public new void SayHi()
+        {
+            Console.WriteLine("Hi I'm a teacher");
         }
     }
 }
-   
